@@ -1,0 +1,41 @@
+version: "3"
+services:
+  selenium-hub:
+    image: selenium/hub
+    container_name: selenium-hub
+    ports:
+      - 4444:4444
+  chrome:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+  firefox:
+    image: selenium/node-firefox
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+  automation-practice:
+    image: ayellapu/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=selenium-hub
+      - MODULE=automationpractice.xml
+    volumes:
+      - ./automationpractice-result:/usr/share/ayellapu/test-output
+  webapp-security:
+    image: ayellapu/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=selenium-hub
+      - MODULE=webappsecurity.xml
+    volumes:
+      - ./webappsecurity-result:/usr/share/ayellapu/test-output
