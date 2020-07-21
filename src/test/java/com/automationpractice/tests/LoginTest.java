@@ -5,6 +5,7 @@ import com.automationpractice.pages.HomePage;
 import com.automationpractice.pages.LoginPage;
 import com.support.BaseForTests;
 import org.testng.Assert;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -22,7 +23,7 @@ public class LoginTest extends BaseForTests {
 
     @Test
     @Parameters({"email", "password"})
-    public void testForLoginWithValidCredentials(String email, String password) {
+    public void testForLoginWithValidCredentials(@Optional("arunpanday777@gmail.com") String email, @Optional("Test@123") String password) {
         this.email = email;
         this.password = password;
 

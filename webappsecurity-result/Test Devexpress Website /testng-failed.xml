@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Test Devexpress Website ]" parallel="tests">
+  <test thread-count="2" name="Test for Feedback Page(failed)" parallel="tests">
+    <parameter name="modeOfExecution" value="Remote"/>
+    <parameter name="comments" value="Test comments"/>
+    <parameter name="subject" value="Test Subject"/>
+    <parameter name="browser" value="Firefox"/>
+    <parameter name="name" value="Arun"/>
+    <parameter name="emailId" value="arunpanday777@gmail.com"/>
+    <classes>
+      <class name="com.devexpress.tests.FeedbackTest">
+        <methods>
+          <include name="testForFeedback"/>
+          <include name="afterTest"/>
+          <include name="beforeSuite"/>
+        </methods>
+      </class> <!-- com.devexpress.tests.FeedbackTest -->
+    </classes>
+  </test> <!-- Test for Feedback Page(failed) -->
+</suite> <!-- Failed suite [Test Devexpress Website ] -->

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
+  <reporter-output>
+  </reporter-output>
+  <suite name="End To End Automation " duration-ms="59977" started-at="2020-07-13T18:34:49Z" finished-at="2020-07-13T18:35:49Z">
+    <groups>
+    </groups>
+    <test name="Verify the functionality of Login feature" duration-ms="24144" started-at="2020-07-13T18:34:49Z" finished-at="2020-07-13T18:35:13Z">
+      <class name="com.automationpractice.tests.LoginTest">
+        <test-method status="PASS" signature="beforeSuite(java.lang.String)[pri:0, instance:com.automationpractice.tests.LoginTest@3b6eb2ec]" name="beforeSuite" is-config="true" duration-ms="9776" started-at="2020-07-13T18:34:49Z" finished-at="2020-07-13T18:34:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Remote]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="testForLoginWithValidCredentials(java.lang.String, java.lang.String)[pri:0, instance:com.automationpractice.tests.LoginTest@3b6eb2ec]" name="testForLoginWithValidCredentials" duration-ms="12429" started-at="2020-07-13T18:34:59Z" finished-at="2020-07-13T18:35:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[arunpanday777@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForLoginWithValidCredentials -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.automationpractice.tests.LoginTest@3b6eb2ec]" name="afterTest" is-config="true" duration-ms="1894" started-at="2020-07-13T18:35:12Z" finished-at="2020-07-13T18:35:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.automationpractice.tests.LoginTest -->
+    </test> <!-- Verify the functionality of Login feature -->
+    <test name="Verify if user is able to place order successfully" duration-ms="59977" started-at="2020-07-13T18:34:49Z" finished-at="2020-07-13T18:35:49Z">
+      <class name="com.automationpractice.tests.EndToEndTestCases">
+        <test-method status="PASS" signature="beforeSuite(java.lang.String)[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="beforeSuite" is-config="true" duration-ms="28792" started-at="2020-07-13T18:34:49Z" finished-at="2020-07-13T18:35:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Remote]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="LoginWithValidCredentials(java.lang.String, java.lang.String)[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="LoginWithValidCredentials" duration-ms="8512" started-at="2020-07-13T18:35:18Z" finished-at="2020-07-13T18:35:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[arunpanday777@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginWithValidCredentials -->
+        <test-method status="PASS" signature="testAddProductToCart()[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="testAddProductToCart" duration-ms="7535" started-at="2020-07-13T18:35:27Z" depends-on-methods="com.automationpractice.tests.EndToEndTestCases.LoginWithValidCredentials" finished-at="2020-07-13T18:35:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddProductToCart -->
+        <test-method status="PASS" signature="testForAddress()[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="testForAddress" duration-ms="1937" started-at="2020-07-13T18:35:34Z" depends-on-methods="com.automationpractice.tests.EndToEndTestCases.testAddProductToCart" finished-at="2020-07-13T18:35:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForAddress -->
+        <test-method status="PASS" signature="testForShipping()[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="testForShipping" duration-ms="1937" started-at="2020-07-13T18:35:36Z" depends-on-methods="com.automationpractice.tests.EndToEndTestCases.testForAddress" finished-at="2020-07-13T18:35:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForShipping -->
+        <test-method status="PASS" signature="testForPayment()[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="testForPayment" duration-ms="2744" started-at="2020-07-13T18:35:38Z" depends-on-methods="com.automationpractice.tests.EndToEndTestCases.testForShipping" finished-at="2020-07-13T18:35:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForPayment -->
+        <test-method status="PASS" signature="testForOrderConfirmation(java.lang.String)[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="testForOrderConfirmation" duration-ms="6594" started-at="2020-07-13T18:35:41Z" depends-on-methods="com.automationpractice.tests.EndToEndTestCases.testForPayment" finished-at="2020-07-13T18:35:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[$18.51]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testForOrderConfirmation -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.automationpractice.tests.EndToEndTestCases@4cdbe50f]" name="afterTest" is-config="true" duration-ms="1914" started-at="2020-07-13T18:35:47Z" finished-at="2020-07-13T18:35:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.automationpractice.tests.EndToEndTestCases -->
+    </test> <!-- Verify if user is able to place order successfully -->
+  </suite> <!-- End To End Automation  -->
+</testng-results>
