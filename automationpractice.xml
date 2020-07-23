@@ -6,12 +6,12 @@
         <listener class-name="com.support.TestListener"></listener>
     </listeners>
 
-<!--    <test name="Verify if user is able to place order successfully" >-->
-<!--        <parameter name="expectedPrice" value="$18.51"></parameter>-->
-<!--        <classes>-->
-<!--            <class name="com.automationpractice.tests.EndToEndTestCases"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Verify if user is able to place order successfully" >
+        <parameter name="expectedPrice" value="$18.51"></parameter>
+        <classes>
+            <class name="com.automationpractice.tests.EndToEndTestCases"/>
+        </classes>
+    </test>
 
     <test name="Verify the functionality of Login feature" >
         <classes>

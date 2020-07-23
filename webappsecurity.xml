@@ -3,7 +3,6 @@
 <suite name="Test Devexpress Website " parallel="tests" thread-count="2">
 
     <test name="Test for Feedback Page" >
-        <parameter name="modeOfExecution" value="Remote"></parameter>
         <parameter name="browser" value="Firefox"></parameter>
         <parameter name="name" value="Arun"></parameter>
         <parameter name="emailId" value="arunpanday777@gmail.com"></parameter>
