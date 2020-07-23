@@ -1,5 +1,6 @@
 package com.automationpractice.pages;
 
+import com.aventstack.extentreports.Status;
 import com.support.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,7 @@ public class CartPage extends BasePage {
     }
 
     public boolean checkIfValidProductAddedToCart(String product) {
+        test.log(Status.INFO, "Product added to cart is :" + product);
         return descriptionOfItemLocator.getText().equalsIgnoreCase(product);
     }
 

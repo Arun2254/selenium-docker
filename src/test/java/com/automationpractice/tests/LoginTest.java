@@ -3,11 +3,12 @@ package com.automationpractice.tests;
 import com.automationpractice.pages.AccountPage;
 import com.automationpractice.pages.HomePage;
 import com.automationpractice.pages.LoginPage;
+import com.aventstack.extentreports.Status;
 import com.support.BaseForTests;
 import org.testng.Assert;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 /**
  * Created by ayellapu on 7/2/20.
@@ -22,23 +23,25 @@ public class LoginTest extends BaseForTests {
     private String password ;
 
     @Test
-    @Parameters({"email", "password"})
-    public void testForLoginWithValidCredentials(@Optional("arunpanday777@gmail.com") String email, @Optional("Test@123") String password) {
-        this.email = email;
-        this.password = password;
+    public void testForLoginWithValidCredentials() throws IOException {
+
+        this.email = getProperty("email");
+        this.password = getProperty("password");
 
         homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isInitialized());
 
         loginPage = homePage.onClickLogin();
         Assert.assertTrue(loginPage.isInitialized());
-
         accountPage = loginPage.onClickSignIn(this.email, this.password);
         Assert.assertTrue(accountPage.isInitialized());
+        test.log(Status.INFO, "User Logged In Successfully");
+        test.log(Status.INFO,"Actual User Name is " + accountPage.getUserName() );
         Assert.assertEquals(accountPage.getUserName(),"Panday tester","UserName is not matching");
 
         homePage = accountPage.clickOnLogout();
         Assert.assertTrue(homePage.isInitialized());
-        System.out.println("Test Completed");
+        test.log(Status.INFO, "User Logged Out Successfully");
+
     }
 }

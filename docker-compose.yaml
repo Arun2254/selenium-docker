@@ -27,7 +27,7 @@ services:
       - HUB_HOST=selenium-hub
       - MODULE=automationpractice.xml
     volumes:
-      - ./automationpractice-result:/usr/share/ayellapu/test-output
+      - ./automationpractice-result:/usr/share/ayellapu/reports
   webapp-security:
     image: ayellapu/selenium-docker
     depends_on:

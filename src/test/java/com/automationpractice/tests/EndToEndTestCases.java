@@ -1,10 +1,13 @@
 package com.automationpractice.tests;
 
 import com.automationpractice.pages.*;
+import com.aventstack.extentreports.Status;
 import com.support.BaseForTests;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 /**
  * Created by ayellapu on 7/2/20.
@@ -29,11 +32,10 @@ public class EndToEndTestCases extends BaseForTests {
     private String expectedPrice ;
 
     @Test
-    @Parameters({"email", "password"})
-    public void LoginWithValidCredentials(String email, String password) {
+    public void LoginWithValidCredentials() throws IOException {
 
-        this.email = email;
-        this.password = password;
+        this.email = getProperty("email");
+        this.password = getProperty("password");
 
         homePage = new HomePage(driver);
 
@@ -41,6 +43,7 @@ public class EndToEndTestCases extends BaseForTests {
 
         loginPage = homePage.onClickLogin();
         Assert.assertTrue(loginPage.isInitialized());
+        test.log(Status.INFO, "User Logged In Successfully");
 
         accountPage = loginPage.onClickSignIn(this.email, this.password);
         Assert.assertTrue(accountPage.isInitialized());
@@ -62,12 +65,14 @@ public class EndToEndTestCases extends BaseForTests {
 
     @Test(dependsOnMethods = "testAddProductToCart")
     public void testForAddress() {
+        test.log(Status.INFO, "Validating Address Page");
         addressPage = cartPage.clickOnProceedToAddressPage();
         Assert.assertTrue(addressPage.isAddressPageDisplayed());
     }
 
     @Test(dependsOnMethods = "testForAddress")
     public void testForShipping() {
+        test.log(Status.INFO, "Validating Shipping Page");
         shippingPage = addressPage.clickOnProceedToShippingPage();
         Assert.assertTrue(shippingPage.isShippingPageDisplayed());
         shippingPage.clickOnCheckBox();
@@ -84,6 +89,7 @@ public class EndToEndTestCases extends BaseForTests {
     @Test(dependsOnMethods = "testForPayment")
     @Parameters({"expectedPrice"})
     public void testForOrderConfirmation(String expectedPrice) {
+        test.log(Status.INFO, "Validating Price on Order Confirmation Page");
         this.expectedPrice = expectedPrice;
         orderConfirmationPage = paymentPage.clickOnConfirmOrder();
         Assert.assertTrue(orderConfirmationPage.isOrderConfirmationPageDisplayed());
@@ -91,5 +97,7 @@ public class EndToEndTestCases extends BaseForTests {
 
         homePage = accountPage.clickOnLogout();
         Assert.assertTrue(homePage.isInitialized());
+        test.log(Status.INFO, "User Logged out Successfully");
+
     }
 }

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.IOException;
+
 /**
  * Created by ayellapu on 7/2/20.
  */
@@ -18,7 +20,11 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
-        openURL("http://automationpractice.com/");
+        try{
+            openURL(getProperty("automationPracticeURL"));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
     public boolean isInitialized() {

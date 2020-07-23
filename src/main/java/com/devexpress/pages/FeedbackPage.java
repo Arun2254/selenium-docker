@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.IOException;
+
 /**
  * Created by ayellapu on 7/3/20.
  */
@@ -37,7 +39,11 @@ public class FeedbackPage extends BasePage {
 
     public FeedbackPage(WebDriver driver) {
         super(driver);
-        openURL("http://zero.webappsecurity.com/");
+        try{
+            openURL(getProperty("webAppSecurityURL"));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
     public void clickOnFeedbackLink() {
@@ -50,7 +56,7 @@ public class FeedbackPage extends BasePage {
         subjectField.sendKeys(subject);
         commentField.sendKeys(comments);
         submitBtn.click();
-        System.out.println("Text is :" + successFeedback.getText());
+        log.info("Text is :" + successFeedback.getText());
         return (successFeedback.getText().contains("Feedback"));
     }
 

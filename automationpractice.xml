@@ -1,21 +1,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="End To End Automation " parallel="tests" thread-count="2">
+<suite name="End To End Automation " parallel="tests" thread-count="1">
 
-    <test name="Verify if user is able to place order successfully" >
-        <parameter name="modeOfExecution" value="Remote"></parameter>
-        <parameter name="email" value="arunpanday777@gmail.com"></parameter>
-        <parameter name="password" value="Test@123"></parameter>
-        <parameter name="expectedPrice" value="$18.51"></parameter>
-        <classes>
-            <class name="com.automationpractice.tests.EndToEndTestCases"/>
-        </classes>
-    </test>
+    <listeners>
+        <listener class-name="com.support.TestListener"></listener>
+    </listeners>
+
+<!--    <test name="Verify if user is able to place order successfully" >-->
+<!--        <parameter name="expectedPrice" value="$18.51"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.automationpractice.tests.EndToEndTestCases"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
     <test name="Verify the functionality of Login feature" >
-        <parameter name="modeOfExecution" value="Remote"></parameter>
-        <parameter name="email" value="arunpanday777@gmail.com"></parameter>
-        <parameter name="password" value="Test@123"></parameter>
         <classes>
             <class name="com.automationpractice.tests.LoginTest"/>
         </classes>

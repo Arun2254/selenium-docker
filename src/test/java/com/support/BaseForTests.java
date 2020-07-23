@@ -2,10 +2,8 @@ package com.support;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 /**
@@ -13,18 +11,17 @@ import java.net.URISyntaxException;
  */
 public class BaseForTests extends InitializeDriver {
 
-
     @BeforeTest
-    @Parameters({"modeOfExecution"})
-    public void beforeSuite(@Optional("Local") String modeOfExecution) throws MalformedURLException, URISyntaxException {
-        if(modeOfExecution.equalsIgnoreCase("Remote")) {
+    public void beforeSuite() throws IOException, URISyntaxException {
+        if(getProperty("modeOfExecution").equalsIgnoreCase("Remote")) {
             setupRemoteDriver(System.getProperty("BROWSER"));
-        } else if(modeOfExecution.equalsIgnoreCase("Local")) {
+        } else if(getProperty("modeOfExecution").equalsIgnoreCase("Local")) {
             setupDriver(System.getProperty("BROWSER"));
+//            setupDriver("firefox");
         }
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void afterTest() {
         closeDriver();
     }

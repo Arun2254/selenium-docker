@@ -1,5 +1,6 @@
 package com.automationpractice.pages;
 
+import com.aventstack.extentreports.Status;
 import com.support.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,7 +26,7 @@ public class OrderConfirmationPage extends BasePage {
     }
 
     public String getPriceOnOrderConfirmation() {
-        System.out.println("Price on Order Confirmation: " + priceLocator.getText());
+        test.log(Status.INFO, "Price on Order Confirmation: " + priceLocator.getText());
        return priceLocator.getText();
     }
 
